@@ -11,7 +11,6 @@ on:
       - develop
       - main
       - feature/ci-location
-      
 permissions:
   contents: write
 
@@ -44,9 +43,10 @@ jobs:
     uses: QuickHaulTransits/quickhaul-templates/.github/workflows/_notify.yml@feature/templates
     with:
       service-name: location-service
+      subject: "🚨 Snyk Critical Vulnerabilities in Location Service"
+      body: "Critical vulnerabilities were found by Snyk in the location-service."
     secrets:
       BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-      ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
 
   # ─── Temp Docker Build + Trivy Scan ───
   build:
@@ -64,9 +64,10 @@ jobs:
     uses: QuickHaulTransits/quickhaul-templates/.github/workflows/_notify.yml@feature/templates
     with:
       service-name: location-service
+      subject: "🚨 Trivy Critical Vulnerabilities in Location Service"
+      body: "Critical vulnerabilities were found by Trivy in the location-service."
     secrets:
       BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-      ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
 
   # ─── Publish Docker Image (Tag + Build + Push) ───
   publish:
