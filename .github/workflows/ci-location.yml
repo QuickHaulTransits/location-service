@@ -82,15 +82,4 @@ jobs:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
 
-  # # ──── Update Helm Chart (CD) ────
-  # cd:
-  #   needs: [publish]
-  #   if: needs.publish.result == 'success'
-  #   uses: QuickHaulTransits/quickhaul-templates/.github/workflows/_cd-template.yml@main
-  #   with:
-  #     service-name: location-service
-  #     image-tag: ${{ needs.publish.outputs.image-tag }}
-  #     environment: ${{ github.ref_name }}
-  #   secrets:
-  #     HELM_REPO_PAT: ${{ secrets.HELM_REPO_PAT }}
 
