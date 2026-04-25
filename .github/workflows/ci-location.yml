@@ -20,6 +20,8 @@ jobs:
     uses: QuickHaulTransits/quickhaul-templates/.github/workflows/_sast.yml@feature/templates
     with:
       service-path: .
+      setup-command: "pip install -r requirements.txt"
+      test-command: "pytest --cov=app --cov-report=xml"
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SONAR_URL: ${{ secrets.SONAR_HOST_URL }}

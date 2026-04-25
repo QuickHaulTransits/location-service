@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY services/location_service/ ./services/location_service/
+# Copy the standalone app.py into the expected service path in the container
+COPY app.py ./services/location_service/app.py
 COPY shared/ ./shared/
 COPY data/ ./data/
 
