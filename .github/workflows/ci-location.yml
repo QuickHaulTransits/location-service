@@ -21,7 +21,7 @@ jobs:
     with:
       service-path: .
       setup-command: "pip install -r requirements.txt"
-      test-command: "pytest --cov=app --cov-report=xml"
+      test-command: "python -m pytest --cov=app --cov-report=xml"
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
