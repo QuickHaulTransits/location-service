@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 motor
 redis
-python-jose[cryptography]
+PyJWT
 passlib[bcrypt]
 pydantic-settings
 python-dotenv
